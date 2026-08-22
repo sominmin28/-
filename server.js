@@ -170,10 +170,6 @@ export function createApp({ fetchImpl = globalThis.fetch, env = process.env } = 
     }
   });
 
-  app.use((_req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-  });
-
   return app;
 }
 
