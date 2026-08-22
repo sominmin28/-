@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>레벨업 포모도로</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero card">
+        <div>
+          <p class="eyebrow">Azure-ready Focus App</p>
+          <h1>레벨업 포모도로</h1>
+          <p class="subtext">25분 집중, 5분 휴식, 4회 후 긴 휴식으로 학습 리듬을 만드세요.</p>
+        </div>
+        <div class="xp-panel">
+          <p>레벨 <strong id="levelValue">1</strong></p>
+          <div class="xp-bar"><span id="xpBar"></span></div>
+          <p><span id="xpValue">0</span> / 100 XP</p>
+          <p class="small">포모도로 1회 완료 = 25 XP</p>
+        </div>
+      </section>
+
+      <section class="timer-layout">
+        <article class="card timer-card">
+          <p class="timer-mode" id="modeLabel">집중 시간</p>
+          <p class="cycle-label">완료 세션 <span id="sessionCount">0</span> / 4</p>
+          <div class="timer" id="timerDisplay">25:00</div>
+          <div class="control-row">
+            <button id="startButton">시작</button>
+            <button id="pauseButton" class="secondary">일시정지</button>
+            <button id="resetButton" class="secondary">리셋</button>
+            <button id="skipButton" class="ghost">건너뛰기</button>
+          </div>
+          <p id="statusText" class="status-text">집중 세션을 시작해 보세요.</p>
+        </article>
+
+        <aside class="card">
+          <h2>시간 설정</h2>
+          <form id="settingsForm" class="settings-form">
+            <label>
+              집중 (15~60분)
+              <input id="focusMinutes" type="number" min="15" max="60" />
+            </label>
+            <label>
+              짧은 휴식 (1~15분)
+              <input id="shortBreakMinutes" type="number" min="1" max="15" />
+            </label>
+            <label>
+              긴 휴식 (10~30분)
+              <input id="longBreakMinutes" type="number" min="10" max="30" />
+            </label>
+            <button type="submit">설정 저장</button>
+          </form>
+
+          <div class="noise-panel">
+            <h2>백색소음</h2>
+            <p class="small">집중 시간에만 재생됩니다.</p>
+            <div class="noise-grid">
+              <button class="noise-option active" data-noise="rain">빗소리</button>
+              <button class="noise-option" data-noise="waves">파도소리</button>
+              <button class="noise-option" data-noise="cafe">카페음</button>
+              <button class="noise-option" data-noise="forest">숲소리</button>
+            </div>
+            <button id="noiseToggle" class="secondary">백색소음 켜기</button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>레벨업 메시지</h2>
+          <p id="encouragementText">다음 레벨업 때 AI 격려 메시지가 여기에 표시됩니다.</p>
+        </article>
+        <article class="card">
+          <h2>학습 통계</h2>
+          <div class="stats-grid">
+            <div><span>오늘</span><strong id="todayStats">0회 · 0분</strong></div>
+            <div><span>이번 주</span><strong id="weekStats">0회 · 0분</strong></div>
+            <div><span>전체</span><strong id="allStats">0회 · 0분</strong></div>
+          </div>
+          <div class="bucket-grid" id="bucketGrid"></div>
+          <p id="insightText" class="small"></p>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
